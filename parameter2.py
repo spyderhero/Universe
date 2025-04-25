@@ -47,6 +47,8 @@ for i, x1_0 in enumerate(x1_0_list):
         z = z_0
 
         z_list = []
+        x1_list = []
+        x2_list = []
         Omega_DE_list = []
         Omega_r_list = []
         Omega_m_list = []
@@ -60,6 +62,8 @@ for i, x1_0 in enumerate(x1_0_list):
             w_DE = (x1**2 - x2**2) / Omega_DE if Omega_DE > 1e-10 else -1
             w_eff = Omega_r / 3 + Omega_DE * w_DE
 
+            x1_list.append(x1)
+            x2_list.append(x2)
             Omega_DE_list.append(Omega_DE)
             Omega_r_list.append(Omega_r)
             Omega_m_list.append(Omega_m)
@@ -96,6 +100,8 @@ for i, x1_0 in enumerate(x1_0_list):
         Omega_arr_m = np.array(Omega_m_list)
         w_arr_DE = np.array(w_DE_list)
         w_arr_eff = np.array(w_eff_list)
+        x1_arr = np.array(x1_list)
+        x2_arr = np.array(x2_list)
 
         index_shift = np.argmin(np.abs(Omega_arr_DE - 0.68))
         z_shift = z_arr[index_shift]
@@ -103,11 +109,13 @@ for i, x1_0 in enumerate(x1_0_list):
 
         color = colors[i % len(colors)]
         label = f"x1_0={x1_0:.0e}, x2_0={x2_0:.0e}"
-        ax.plot(shifted_z, Omega_arr_r, linestyle="--", color=color, alpha=0.3, label=f"$\Omega_{{r}}$ ({label})")
-        ax.plot(shifted_z, Omega_arr_m, linestyle="-.", color=color, alpha=0.5, label=f"$\Omega_{{m}}$ ({label})")
-        ax.plot(shifted_z, Omega_arr_DE, linestyle="-", color=color, label=f"$\Omega_{{\phi}}$ ({label})")
+        ax.plot(shifted_z, Omega_arr_r, linestyle="--", color=color, label=f"$\Omega_{{r}}$ ({label})")
+        ax.plot(shifted_z, Omega_arr_m, linestyle="-.", color=color, label=f"$\Omega_{{m}}$ ({label})")
+        ax.plot(shifted_z, Omega_arr_DE, linestyle=(0,(3, 5, 5)), color=color, label=f"$\Omega_{{\phi}}$ ({label})")
         ax.plot(shifted_z, w_arr_DE, linestyle=":", color=color, label=f"$w_{{DE}}$ ({label})")
-        ax.plot(shifted_z, w_arr_eff, linestyle="solid", color=color, alpha=0.6, label=f"$w_{{eff}}$ ({label})")
+        ax.plot(shifted_z, w_arr_eff, linestyle="solid", color=color, label=f"$w_{{eff}}$ ({label})")
+        ax.plot(shifted_z, x1_arr, linestyle=(0, (5, 3, 1, 3, 1, 3)), color=color, alpha=0.5, label=f"$x_1$ ({label})")
+        ax.plot(shifted_z, x2_arr, linestyle=(5, (10, 3)), color=color, alpha=0.5, label=f"$x_2$ ({label})")
 
         Omega_DE_z0 = Omega_arr_DE[index_shift]
         Omega_r_z0 = Omega_arr_r[index_shift]
@@ -156,6 +164,8 @@ for i, x1_0 in enumerate(x1_0_list):
         z = z_0
 
         z_list = []
+        x1_list = []
+        x2_list = []
         Omega_DE_list = []
         Omega_r_list = []
         Omega_m_list = []
@@ -169,6 +179,8 @@ for i, x1_0 in enumerate(x1_0_list):
             w_DE = (x1**2 - x2**2) / Omega_DE if Omega_DE > 1e-10 else -1
             w_eff = Omega_r / 3 + Omega_DE * w_DE
 
+            x1_list.append(x1)
+            x2_list.append(x2)
             Omega_DE_list.append(Omega_DE)
             Omega_r_list.append(Omega_r)
             Omega_m_list.append(Omega_m)
@@ -205,6 +217,8 @@ for i, x1_0 in enumerate(x1_0_list):
         Omega_arr_m = np.array(Omega_m_list)
         w_arr_DE = np.array(w_DE_list)
         w_arr_eff = np.array(w_eff_list)
+        x1_arr = np.array(x1_list)
+        x2_arr = np.array(x2_list)
 
         index_shift = np.argmin(np.abs(Omega_arr_DE - 0.68))
         z_shift = z_arr[index_shift]
@@ -212,11 +226,13 @@ for i, x1_0 in enumerate(x1_0_list):
 
         color = colors[j % len(colors)]
         label = f"x1_0={x1_0:.0e}, x2_0={x2_0:.0e}"
-        ax.plot(shifted_z, Omega_arr_r, linestyle="--", color=color, alpha=0.3, label=f"$\Omega_{{r}}$ ({label})")
-        ax.plot(shifted_z, Omega_arr_m, linestyle="-.", color=color, alpha=0.5, label=f"$\Omega_{{m}}$ ({label})")
-        ax.plot(shifted_z, Omega_arr_DE, linestyle="-", color=color, label=f"$\Omega_{{\phi}}$ ({label})")
+        ax.plot(shifted_z, Omega_arr_r, linestyle="--", color=color, label=f"$\Omega_{{r}}$ ({label})")
+        ax.plot(shifted_z, Omega_arr_m, linestyle="-.", color=color, label=f"$\Omega_{{m}}$ ({label})")
+        ax.plot(shifted_z, Omega_arr_DE, linestyle=(0,(3, 5, 5)), color=color, label=f"$\Omega_{{\phi}}$ ({label})")
         ax.plot(shifted_z, w_arr_DE, linestyle=":", color=color, label=f"$w_{{DE}}$ ({label})")
-        ax.plot(shifted_z, w_arr_eff, linestyle="solid", color=color, alpha=0.6, label=f"$w_{{eff}}$ ({label})")
+        ax.plot(shifted_z, w_arr_eff, linestyle="solid", color=color, label=f"$w_{{eff}}$ ({label})")
+        ax.plot(shifted_z, x1_arr, linestyle=(0, (5, 3, 1, 3, 1, 3)), color=color, alpha=0.5, label=f"$x_1$ ({label})")
+        ax.plot(shifted_z, x2_arr, linestyle=(5, (10, 3)), color=color, alpha=0.5, label=f"$x_2$ ({label})")
 
         Omega_DE_z0 = Omega_arr_DE[index_shift]
         Omega_r_z0 = Omega_arr_r[index_shift]
