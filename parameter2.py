@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 st.header("初期値の影響：スカラー場初期値と宇宙進化の関係")
 
-st.subheader("$x_2$の初期値を固定して$x_1$の初期値を変動させたときのそれに伴う宇宙進化の変動")
+st.subheader("1)$x_2$の初期値を固定して$x_1$の初期値を変動させたときのそれに伴う宇宙進化の変動")
 
 # --- λ 設定 ---
 lambda_val = st.sidebar.slider(
@@ -129,7 +129,7 @@ ax.set_ylabel(r"Each Parameter value", fontsize=14)
 ax.legend(bbox_to_anchor=(1, 0), loc='lower right', borderaxespad=1, fontsize=6)
 st.pyplot(fig)
 
-st.subheader("$x_1$の初期値を固定して$x_2$の初期値を変動させたときのそれに伴う宇宙進化の変動")
+st.subheader("2)$x_1$の初期値を固定して$x_2$の初期値を変動させたときのそれに伴う宇宙進化の変動")
 
 # --- 初期値のパターン ---
 x1_0_list = [10**(-10)]
