@@ -1,3 +1,4 @@
+# M1加瀬研課題シリーズ 第6回課題 その1
 import streamlit as st #streamlit run (このファイル名).py で起動
 import numpy as np
 import matplotlib.pyplot as plt
