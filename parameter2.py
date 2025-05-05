@@ -1,3 +1,4 @@
+# M1加瀬研課題シリーズ 第6回課題 その2
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
